@@ -2,10 +2,11 @@ function submitForm() {
     event.preventDefault();
 
     // Get form data
+    const rollno = document.getElementById('rollno').value;
+    const course = document.getElementById('course').value;
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
+    const phone = document.getElementById('phone').value;
 
     // Create request object
     const xhr = new XMLHttpRequest();
@@ -19,10 +20,11 @@ function submitForm() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 alert('Registration successful!');
+                document.getElementById('rollno').value = '';
+                document.getElementById('course').value = '';                
                 document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('phone').value = '';
                 document.getElementById('password').value = '';
+                document.getElementById('phone').value = '';
             } else {
                 alert('Registration failed: ' + xhr.responseText);
             }
@@ -31,9 +33,19 @@ function submitForm() {
 
     // Send request
     xhr.send(JSON.stringify({
+        rollno: rollno,
+        course: course,
         name: name,
-        email: email,
-        phone: phone,
-        password: password
+        password: password,
+        phone: phone
     }));
 }
+
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+  
+    // Reset the form
+    this.reset();
+  });
+  
