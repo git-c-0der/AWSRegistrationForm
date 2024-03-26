@@ -8,21 +8,24 @@
     <div class="container">
         <h1>Registration Form</h1>
         <form id="myForm">
-            <label for="rollno">Roll Number</label>
-            <input type="number" id="rollno" name="rollno" required>
-
-            <label for="course">Course</label>
-            <input type="text" id="course" name="course" required>
+            <label for="tempRoll">Temporary Roll Number</label>
+            <input type="text" id="tempRoll" name="tempRoll" required>
 
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-
+            <label for="course">Course</label>
+            <input type="text" id="course" name="course" required>
+            
             <label for="phone">Phone</label>
             <input type="text" id="phone" name="phone" pattern="[0-9]{10}" required>
 
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
             <input type="submit" value="Submit" onclick="submitForm()">
         </form>
     </div>
